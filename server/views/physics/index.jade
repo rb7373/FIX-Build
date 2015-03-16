@@ -1,0 +1,9 @@
+extends ../../includes/physics/layout
+
+block main-content
+    //// NAVIGATION
+    div(ng-include="'/layout/topbar/topbar'")
+    section.content
+        div(ui-view)
+    footer.container.text-center
+        p &copy 2014-2015 Pernix

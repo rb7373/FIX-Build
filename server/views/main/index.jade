@@ -1,0 +1,8 @@
+extends ../../includes/main/layout
+
+block main-content
+  div(ng-include="'/partials/partials/navBarPartial'")
+  section.content
+    div(ng-view)
+  footer.container.text-center
+    p &copy 2014-2015 Pernix

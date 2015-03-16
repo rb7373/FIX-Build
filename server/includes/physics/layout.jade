@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+  title Fix
+  link(rel="stylesheet", href="/vendor/lumx/dist/lumx.css")
+  link(rel="stylesheet", href="/vendor/mdi/css/materialdesignicons.css")
+  link(rel="stylesheet", href="/vendor/roboto-fontface/roboto-fontface.css")
+  link(rel="stylesheet", href="/vendor/ionicons/css/ionicons.css", media="all")
+  link(rel="stylesheet", href="/vendor/angular-material/angular-material.css")
+  link(rel="stylesheet", href="/css/site.css")
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  body(ng-app='app')
+    include currentUser
+    block main-content
+    include scripts
