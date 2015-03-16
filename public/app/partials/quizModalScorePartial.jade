@@ -1,0 +1,21 @@
+.modal-full-width
+  .modal-header
+      h3.modal-title
+        | FiX
+      .modal-body.text-center
+        .well
+          p 
+            | Total questions: {{totalQuestions}}
+          p 
+            | Correct answers: {{totalCorrectQuestions}}
+          p
+            | Your score is: {{score}}
+        div(ng-init="rateQuiz = 5")
+          | Rate this quiz!
+          br
+          rating(ng-model='rateQuiz', max='5', state-on="'fa fa-star bg-default'", state-off="'fa fa-star-o'")
+      .modal-footer
+        button.btn.btn-primary.btn-sm(ng-click='ok()')
+          | Send
+        button.btn.btn-warning.btn-sm(ng-click='cancel()')
+          | Cancel

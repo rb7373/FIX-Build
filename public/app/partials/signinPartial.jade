@@ -1,0 +1,26 @@
+.container
+	.col-sm-6.col-sm-offset-3
+		h1
+			span.glyphicon.glyphicon-log-in
+			|	Sign in
+		hr
+		form(novalidate='', name="signin_form")
+			.form-group.has-feedback
+				label Email
+				input.form-control(autocomplete="off", type="text", name="email", ng-model="newUser.email", required)
+				div(ng-show='signin_form.email.$dirty && signin_form.email.$invalid')
+					span.error.help-block(ng-show='signin_form.email.$error.required')
+						| Your email is required.		
+			.form-group.has-feedback
+				label Password
+				input.form-control(autocomplete="off", placeholder ='password', type="password", name="password", ng-model="newUser.password", required)
+				div(ng-show='signin_form.password.$dirty && signin_form.password.$invalid')
+					span.error.help-block(ng-show='signin_form.password.$error.required')
+						| Your password is required.
+			button.btn.btn-warning(ng-click="signin(newUser.email, newUser.password)", ng-disabled="signin_form.$invalid")
+				| Sign in
+		hr		
+		p Need an account? 
+			a(href='/signup') Sign up 
+		p Or go 
+			a(href='/') home

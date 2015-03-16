@@ -1,0 +1,17 @@
+.raw
+	h4 {{currentPage}}) {{currentQuestion.question}}
+.raw
+	br
+	form
+		div.radio-quiz.velocity-opposites-transition-slideUpIn(data-velocity-opts="{ duration: 500 }", ng-repeat='choice in currentQuestion.choices')
+			input(id ="{{'input'+$index}}", value='{{$index}}', type='radio', ng-model ='currentQuestion.selectedAnswer')
+			label(for="{{'input'+$index}}")
+				| &nbsp; {{choice}} &nbsp;
+				i.fa.fa-check.color-default(ng-show="$index == currentQuestion.answers[0] && showCorrectAnswers")
+				i.fa.fa-times.color-danger(ng-show="currentQuestion.selectedAnswer != currentQuestion.answers[0] && $index == currentQuestion.selectedAnswer && showCorrectAnswers")
+			br
+
+
+
+		
+

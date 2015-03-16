@@ -1,0 +1,35 @@
+.navbar.navbar-inverse.navbar-fixed-top
+  .container
+    .navbar-header
+      a.navbar-brand.navbar-brand-logo(href='/')
+        img(alt='Brand', src='/img/logo2.png')
+      button.navbar-toggle.collapsed(id ='navTop', type='button', data-toggle='collapse', data-target='#topBar')
+        span.sr-only Toggle navigation   
+        span.icon-bar  
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand.navbar-logo-text(href="/") FiX App
+
+    #topBar.navbar-collapse.collapse
+      ul.nav.navbar-nav
+        li
+          a(href="/topics") Topics
+        li
+          a(href="/animations") Animations
+      form.navbar-form.navbar-left(role='search')
+        .input-group
+          input.form-control(type='text', placeholder = "Search")
+          span.input-group-addon
+            i.fa.fa-search
+      div(ng-include="'/partials/partials/navbarLoginPartial'")
+
+    //- .btn-group(dropdown='', is-open='status.isopen')
+    //-   button.btn.btn-primary.dropdown-toggle(type='button', dropdown-toggle='', ng-disabled='disabled')
+    //-     | Button dropdown 
+    //-     span.caret      
+    //-   ul.dropdown-menu(role='menu')
+    //-     li
+    //-       a(href='#') Action
+    //-     li.divider       
+    //-     li
+    //-       a(href='#') Another action

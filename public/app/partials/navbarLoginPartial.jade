@@ -1,0 +1,26 @@
+.nav.navbar-right(ng-controller="navBarLoginController")
+	form.navbar-form(ng-hide="identity.isAuthenticated()")
+		.form-group
+			a.btn.btn-primary(style="background-color:black", href="/signup", ng-hide="identity.isAuthenticated()")
+				span(style="color:white")
+				| &nbsp; Sign up&nbsp;
+		.form-group
+			a.btn.btn-primary(href="/signin", ng-hide="identity.isAuthenticated()")
+				span.glyphicon.glyphicon-log-in(style="color:white")
+				| &nbsp;Sign in
+
+	ul.nav.navbar-nav.navbar-right(ng-show="identity.isAuthenticated()")
+		li.dropdown
+			a.dropdown-toggle(href="", data-toggle="dropdown")
+				span.glyphicon.glyphicon-user(style="color:white")
+				| &nbsp; {{identity.currentUser.firstName + " " + identity.currentUser.lastName}}
+				b.caret
+			ul.dropdown-menu
+				li(ng-show="identity.currentUser.isAdmin()")
+					a(href="/admin/users") User Admin
+				li
+					a(href="/profile") Profile
+				li
+					a(href="", ng-click="signout()") Sign Out
+
+

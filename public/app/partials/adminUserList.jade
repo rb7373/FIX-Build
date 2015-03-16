@@ -1,0 +1,7 @@
+.container
+  h1
+    | Registered users
+  .table-responsive
+    table.table.table-striped.table-hover
+      tr(ng-repeat="user in users")
+        td {{user.firstName + ' ' + user.lastName}}

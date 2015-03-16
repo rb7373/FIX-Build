@@ -1,0 +1,63 @@
+.container
+	.col-sm-6.col-sm-offset-3
+		h1
+			span
+			|	Sign up
+		hr
+		form(novalidate='', name="signup_form")
+			.form-group.has-feedback
+				label Name
+				input.form-control(autocomplete="off", type="text", name="name", ng-model="newUser.name", ng-minlength='{{minLenName}}', ng-maxlength='{{maxLenName}}', required)
+				span.glyphicon.glyphicon-ok.form-control-feedback.btn-primary(aria-hidden="true", ng-show='!signup_form.name.$error.required && !signup_form.name.$error.minlength && !signup_form.name.$error.maxlength')
+				button(ng-show='signup_form.name.$dirty && signup_form.name.$invalid')
+					span.error.help-block(ng-show='signup_form.name.$error.required')
+						| Your name is required.
+					span.help-block(ng-show='signup_form.name.$error.minlength')
+						| Your name is required to be at least {{minLenName}} characters.
+					span.help-block(ng-show='signup_form.name.$error.maxlength')
+						| Your name cannot be longer than {{maxLenName}} characters
+			.form-group.has-feedback
+				label Last name
+				input.form-control(autocomplete="off", type="text", name="lastName", ng-model="newUser.lastName", ng-minlength='{{minLenLastName}}', ng-maxlength='{{maxLenLastName}}', required)
+				span.glyphicon.glyphicon-ok.form-control-feedback.btn-primary(aria-hidden="true", ng-show='!signup_form.lastName.$error.required && !signup_form.lastName.$error.minlength && !signup_form.lastName.$error.maxlength')
+				div(ng-show='signup_form.lastName.$dirty && signup_form.lastName.$invalid')
+					span.error.help-block(ng-show='signup_form.lastName.$error.required')
+						| Your last name is required.
+					span.help-block(ng-show='signup_form.lastName.$error.minlength')
+						| Your last name is required to be at least {{minLenLastName}} characters.
+					span.help-block(ng-show='signup_form.lastName.$error.maxlength')
+						| Your last name cannot be longer than {{maxLenLastName}} characters
+			.form-group.has-feedback
+				label Email
+				input.form-control(autocomplete="off", type="email", name="email", ng-model="newUser.email", ng-minlength='{{minLenEmail}}', ng-maxlength='{{maxLenEmail}}', required)
+				span.glyphicon.glyphicon-ok.form-control-feedback.btn-primary(aria-hidden="true", ng-show='!signup_form.email.$error.required && !signup_form.email.$error.minlength && !signup_form.email.$error.maxlength && !signup_form.email.$error.email')
+				div(ng-show='signup_form.email.$dirty && signup_form.email.$invalid')
+					span.error.help-block(ng-show='signup_form.email.$error.required')
+						| Your email is required.
+					span.help-block(ng-show='signup_form.email.$error.minlength')
+						| Your email is required to be at least {{minLenEmail}} characters.
+					span.help-block(ng-show='signup_form.email.$error.maxlength')
+						| Your email cannot be longer than {{maxLenEmail}} characters.
+					span.help-block(ng-show='signup_form.email.$error.email')
+						| That is not a valid email. Please input a valid email.		
+			.form-group.has-feedback
+				label Password
+				input.form-control(autocomplete="off", placeholder ='password', type="password", name="password", ng-model="newUser.password", ng-minlength='{{minLenPassword}}', ng-maxlength='{{maxLenPassword}}', required)
+				span.glyphicon.glyphicon-ok.form-control-feedback.btn-primary(aria-hidden="true", ng-show='!signup_form.password.$error.required && !signup_form.password.$error.minlength && !signup_form.password.$error.maxlength')
+				div(ng-show='signup_form.password.$dirty && signup_form.password.$invalid')
+					span.error.help-block(ng-show='signup_form.password.$error.required')
+						| Your password is required.
+					span.help-block(ng-show='signup_form.password.$error.minlength')
+						| Your password is required to be at least {{minLenPassword}} characters.
+					span.help-block(ng-show='signup_form.password.$error.maxlength')
+						| Your password cannot be longer than {{maxLenPassword}} characters
+			button.btn.btn-warning(ng-click="signupUser()", ng-disabled="signup_form.$invalid")
+				| Sign up
+		hr		
+		p 
+			| Already have an account? 
+			a(href='/signin')
+				| Sign in	 
+		p 
+			| Or go 
+			a(href='/') home

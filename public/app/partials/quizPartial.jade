@@ -1,0 +1,6 @@
+.container
+	.panel.panel-primary.text-center
+		.panel-heading
+			h1 Quiz: {{quiz.title}}
+		.panel-body.text-justify
+			div(ng-include="'/partials/partials/quizQuestionsPartial'")

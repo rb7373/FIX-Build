@@ -1,0 +1,9 @@
+app
+	js
+		services
+		controlles
+		directives
+		modules (libs)
+		thirdParty
+	partials
+

@@ -1,0 +1,59 @@
+.container
+  .col-sm-6.col-sm-offset-3
+    h1
+      span
+      | Profile User
+    hr
+    form(novalidate='', name="updateProfile_form")
+      .form-group.has-feedback
+        label Name
+        input.form-control(autocomplete="off", type="text", name="name", ng-model="name", ng-minlength='{{minLenName}}', ng-maxlength='{{maxLenName}}', required)
+        span.glyphicon.glyphicon-ok.form-control-feedback.btn-primary(aria-hidden="true", ng-show='!updateProfile_form.name.$error.required && !updateProfile_form.name.$error.minlength && !updateProfile_form.name.$error.maxlength')
+        div(ng-show='updateProfile_form.name.$dirty && updateProfile_form.name.$invalid')
+          span.error.help-block(ng-show='updateProfile_form.name.$error.required')
+            | Your name is required.
+          span.help-block(ng-show='updateProfile_form.name.$error.minlength')
+            | Your name is required to be at least {{minLenName}} characters.
+          span.help-block(ng-show='updateProfile_form.name.$error.maxlength')
+            | Your name cannot be longer than {{maxLenName}} characters
+      .form-group.has-feedback
+        label Last name
+        input.form-control(autocomplete="off", type="text", name="lastName", ng-model="lastName", ng-minlength='{{minLenLastName}}', ng-maxlength='{{maxLenLastName}}', required)
+        span.glyphicon.glyphicon-ok.form-control-feedback.btn-primary(aria-hidden="true", ng-show='!updateProfile_form.lastName.$error.required && !updateProfile_form.lastName.$error.minlength && !updateProfile_form.lastName.$error.maxlength')
+        div(ng-show='updateProfile_form.lastName.$dirty && updateProfile_form.lastName.$invalid')
+          span.error.help-block(ng-show='updateProfile_form.lastName.$error.required')
+            | Your last name is required.
+          span.help-block(ng-show='updateProfile_form.lastName.$error.minlength')
+            | Your last name is required to be at least {{minLenLastName}} characters.
+          span.help-block(ng-show='updateProfile_form.lastName.$error.maxlength')
+            | Your last name cannot be longer than {{maxLenLastName}} characters
+      .form-group.has-feedback
+        label Email
+        input.form-control(autocomplete="off", type="email", name="email", ng-model="email", ng-minlength='{{minLenEmail}}', ng-maxlength='{{maxLenEmail}}', required)
+        span.glyphicon.glyphicon-ok.form-control-feedback.btn-primary(aria-hidden="true", ng-show='!updateProfile_form.email.$error.required && !updateProfile_form.email.$error.minlength && !updateProfile_form.email.$error.maxlength && !updateProfile_form.email.$error.email')
+        div(ng-show='updateProfile_form.email.$dirty && updateProfile_form.email.$invalid')
+          span.error.help-block(ng-show='updateProfile_form.email.$error.required')
+            | Your email is required.
+          span.help-block(ng-show='updateProfile_form.email.$error.minlength')
+            | Your email is required to be at least {{minLenEmail}} characters.
+          span.help-block(ng-show='updateProfile_form.email.$error.maxlength')
+            | Your email cannot be longer than {{maxLenEmail}} characters.
+          span.help-block(ng-show='updateProfile_form.email.$error.email')
+            | That is not a valid email. Please input a valid email.    
+      .form-group.has-feedback
+        label Password
+        input.form-control(autocomplete="off", placeholder ='password', type="password", name="password", ng-model="password", ng-minlength='{{minLenPassword}}', ng-maxlength='{{maxLenPassword}}', required)
+        span.glyphicon.glyphicon-ok.form-control-feedback.btn-primary(aria-hidden="true", ng-show='!updateProfile_form.password.$error.required && !updateProfile_form.password.$error.minlength && !updateProfile_form.password.$error.maxlength')
+        div(ng-show='updateProfile_form.password.$dirty && updateProfile_form.password.$invalid')
+          span.error.help-block(ng-show='updateProfile_form.password.$error.required')
+            | Your password is required.
+          span.help-block(ng-show='updateProfile_form.password.$error.minlength')
+            | Your password is required to be at least {{minLenPassword}} characters.
+          span.help-block(ng-show='updateProfile_form.password.$error.maxlength')
+            | Your password cannot be longer than {{maxLenPassword}} characters
+      .form-group
+        button.btn.btn-warning(ng-click="update()", ng-disabled="updateProfile_form.$invalid")
+          | Update
+        | &nbsp;
+        a.btn.btn-default(href="/")
+          | Cancel

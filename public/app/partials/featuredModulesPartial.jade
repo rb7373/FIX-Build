@@ -1,0 +1,6 @@
+.panel.panel-primary
+	.panel-heading.text-center Featured Topics
+	.panel-body
+		.raw(ng-repeat="topic in topics | filter:{featured:true} | limitTo:10")
+			.col-md-12
+				a(href="/topics/{{topic._id}}") {{topic.title}}

@@ -1,0 +1,13 @@
+center
+	p Total Questions: {{totalQuestions}}
+	p Current question: {{currentPage}}
+	br
+	br
+	button.btn.btn-primary(type='button', ng-click="getQuizScore('sm')", tooltip="{{getStatusQuiz()}}", tooltip-placement="bottom")
+		| Grade Me!
+	br
+	br
+	i.btn.fa.fa-thumbs-o-up.color-default
+		| {{likes}}
+	i.btn.fa.fa-thumbs-o-down
+		| {{dislikes}}
