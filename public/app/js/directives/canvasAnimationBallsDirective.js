@@ -182,15 +182,6 @@ angular.module('app').directive("canvasAnimationBallsDirective", function($swipe
           this.draw = draw_ball;
         }
 
-        function random_color() {
-          var letter = "0123456789ABCDEF".split("");
-          var color = "#";
-          for (var i = 0; i < 6; i++) {
-            color += letter[Math.round(Math.random() * 15)];
-          }
-          return color;
-        }
-
         function game_loop() {
           context.clearRect(0, 0, canvas.width, canvas.height);
 

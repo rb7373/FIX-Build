@@ -10,6 +10,7 @@
         'app.core',
         'app.physics',
         'app.widgets', // needs core
+        'app.layout'
 
         /*
          * Feature areas
